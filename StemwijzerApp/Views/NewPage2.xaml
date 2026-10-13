@@ -8,5 +8,9 @@
             Text="!"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <Button
+            Text="auaguuaghaugh"
+            BackgroundColor="green"
+            />
     </VerticalStackLayout>
 </ContentPage>

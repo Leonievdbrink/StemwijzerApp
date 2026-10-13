@@ -7,8 +7,7 @@
     Title="StemwijzerApp">
 
     <ShellContent
-        Title="AAAA"
-        ContentTemplate="{DataTemplate local:NewPage2}"
-        Route="NewPage2" />
+        ContentTemplate="{DataTemplate local:QuestionPage}"
+        Route="QuestionPage" />
 
 </Shell>
