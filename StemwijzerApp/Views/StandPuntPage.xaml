@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Stemwijzer.StandpuntPage"
+             Title="Standpunt"
+             BackgroundColor="White"
+             Shell.NavBarIsVisible="False">
+
+    <ContentPage.Resources>
+        <Color x:Key="Paars">#7B61FF</Color>
+        <Color x:Key="GrijsDot">#DDDDDD</Color>
+        <Color x:Key="Kaart">#F4F4F4</Color>
+        <Color x:Key="Teal">#2A9D9F</Color>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="*,Auto"
+          Padding="16,16,16,0">
+
+        <!-- Kaart -->
+        <Border Grid.Row="0"
+                BackgroundColor="{StaticResource Kaart}"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 16"
+                Padding="20,20,20,16">
+
+            <Grid RowDefinitions="Auto,Auto,*"
+                  RowSpacing="16">
+
+                <!-- Terugknop -->
+                <Label Grid.Row="0"
+                       Text="‹"
+                       FontSize="30"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       HorizontalOptions="Start">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTerugTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <!-- Partijrij -->
+                <Grid Grid.Row="1"
+                      ColumnDefinitions="Auto,*,Auto"
+                      ColumnSpacing="16">
+                    <Border Grid.Column="0"
+                            WidthRequest="26"
+                            HeightRequest="26"
+                            BackgroundColor="{StaticResource Teal}"
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 13">
+                        <Label Text="!!"
+                               FontAttributes="Bold"
+                               FontSize="13"
+                               TextColor="White"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+                    </Border>
+
+                    <Label Grid.Column="1"
+                           Text="PvdA/GL"
+                           FontFamily="PoppinsMedium"
+                           FontSize="12"
+                           VerticalOptions="Center" />
+
+                    <Label Grid.Column="2"
+                           Text="Placeholder Lange Text"
+                           FontFamily="PoppinsMedium"
+                           FontSize="12"
+                           VerticalOptions="Center" />
+                </Grid>
+
+                <!-- Tekst (scrollbaar bij lange tekst) -->
+                <ScrollView Grid.Row="2">
+                    <Label Text="&quot;Lorem Ipsum is simply dummy text of the printing and typesetting industry. dummy text ever since 1966..&quot;"
+                           FontFamily="PoppinsRegular"
+                           FontSize="15"
+                           TextColor="Black"
+                           LineHeight="1.25" />
+                </ScrollView>
+            </Grid>
+        </Border>
+
+        <!-- Paginaindicator (3e actief) -->
+        <HorizontalStackLayout Grid.Row="1"
+                               HorizontalOptions="Center"
+                               Spacing="4"
+                               Margin="0,28,0,28">
+            <Border WidthRequest="8"
+                    HeightRequest="8"
+                    BackgroundColor="{StaticResource GrijsDot}"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 4" />
+            <Border WidthRequest="8"
+                    HeightRequest="8"
+                    BackgroundColor="{StaticResource GrijsDot}"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 4" />
+            <Border WidthRequest="32"
+                    HeightRequest="8"
+                    BackgroundColor="{StaticResource Paars}"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 4" />
+        </HorizontalStackLayout>
+    </Grid>
+</ContentPage>

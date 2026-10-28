@@ -73,11 +73,20 @@
 	<ItemGroup>
 	  <Compile Update="Views\QuestionPage.xaml.cs">
 	    <DependentUpon>QuestionPage.xaml</DependentUpon>
+	  <Compile Update="Views\HomePage.xaml.cs">
+	    <DependentUpon>HomePage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\StandPuntPage.xaml.cs">
+	    <DependentUpon>StandPuntPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\QuestionPage.xaml">
+	  <MauiXaml Update="Views\HomePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\StandPuntPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
