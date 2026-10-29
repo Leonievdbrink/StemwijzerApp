@@ -7,8 +7,6 @@ namespace StemwijzerApp
         public AppShell()
         {
             InitializeComponent();
-
-            Routing.RegisterRoute("StandpuntPage", typeof(StandpuntPage));
         }
     }
 }

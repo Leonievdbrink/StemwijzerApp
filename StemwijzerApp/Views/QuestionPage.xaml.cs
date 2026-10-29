@@ -1,88 +1,78 @@
-using System.Text.Json;
+using StemwijzerApp.Models;
+using StemwijzerApp.Services.Interfaces;
 
 namespace StemwijzerApp;
 
 public partial class QuestionPage : ContentPage
 {
+    private readonly IStellingService _stellingService;
+    private List<Stelling> _stellingen = new();
+    private int _index = 0;
 
-    public QuestionPage()
+    public QuestionPage(IStellingService stellingService)
     {
         InitializeComponent();
-        Window_Loaded();
+        _stellingService = stellingService;
     }
 
-    private async void Window_Loaded()
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        await LoadStellingenAsync();
+    }
+
+    private async Task LoadStellingenAsync()
     {
         try
         {
-            var stellingenService = new GetStellingen();
-            List<Stellingen> stellingen =
-                await stellingenService.LoadStellingenAsync();
-
-            if (stellingen.Count > 0)
-            {
-                StellingArea.Text = stellingen[0].tekst;
-            }
+            _stellingen = await _stellingService.GetStellingenAsync();
+            _index = 0;
+            ToonHuidigeStelling();
         }
-        catch (Exception exception)
+        catch (Exception ex)
         {
-            StellingArea.Text = $"De stellingen konden niet worden geladen: {exception.Message}";
+            StellingArea.Text = $"De stellingen konden niet worden geladen: {ex.Message}";
         }
     }
-    //http://localhost/Stemwijzer/API/SendStellingen.php
 
-    int count = 0;
+    private void ToonHuidigeStelling()
+    {
+        if (_stellingen.Count == 0)
+        {
+            StellingArea.Text = "Geen stellingen gevonden.";
+            return;
+        }
+
+        if (_index >= _stellingen.Count)
+        {
+            StellingArea.Text = "Alle stellingen beantwoord!";
+            return;
+        }
+
+        StellingArea.Text = _stellingen[_index].Tekst;
+    }
+
     private void OnClickEens(object? sender, EventArgs e)
     {
-        count++;
-        StellingArea.Text = $"Je hebt eens geklikt! ({count})";
-        
+        // TODO: antwoord opslaan (bijv. 1 = eens)
+        Volgende();
     }
 
     private void OnClickGeenMening(object? sender, EventArgs e)
     {
-        StellingArea.Text = $"Je hebt geen mening geklikt! ({count})";
+        // TODO: antwoord opslaan (bijv. 0 = geen mening)
+        Volgende();
     }
 
     private void OnClickOneens(object? sender, EventArgs e)
     {
-        count--;
-        StellingArea.Text = $"Je hebt oneens geklikt! ({count})";
-        
+        // TODO: antwoord opslaan (bijv. -1 = oneens)
+        Volgende();
     }
 
-    
-
-    public class GetStellingen
+    private void Volgende()
     {
-        private const string ApiUrl =
-          "http://10.0.2.2/Stemwijzer/API/SendStellingen.php";
-
-        private readonly HttpClient _client = new();
-        private readonly JsonSerializerOptions _serializerOptions = new()
-        {
-            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-            WriteIndented = true
-        };
-
-        public List<Stellingen> Items { get; private set; } = [];
-
-        public async Task<List<Stellingen>> LoadStellingenAsync(
-            CancellationToken cancellationToken = default)
-        {
-            using HttpResponseMessage response =
-                await _client.GetAsync(ApiUrl, cancellationToken);
-
-            response.EnsureSuccessStatusCode();
-
-            string json = await response.Content.ReadAsStringAsync(cancellationToken);
-
-            Items = JsonSerializer.Deserialize<List<Stellingen>>(
-                json,
-                _serializerOptions) ?? [];
-
-            return Items;
-        }
+        _index++;
+        ToonHuidigeStelling();
     }
-
 }
