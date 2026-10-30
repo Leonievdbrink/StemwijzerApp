@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using StemwijzerApp.Helpers;
+using StemwijzerApp.Services;
 using StemwijzerApp.Services.Api;
 using StemwijzerApp.Services.Interfaces;
 //using StemwijzerApp.Views;
@@ -41,6 +42,11 @@ namespace StemwijzerApp
 
             builder.Services.AddTransient<PartijenPage>();
             builder.Services.AddTransient<PartijDetailPage>();
+            builder.Services.AddSingleton<IMatchService, MatchService>();
+            builder.Services.AddSingleton<AntwoordenService>();
+            builder.Services.AddSingleton<IMatchService, MatchService>();
+            builder.Services.AddTransient<QuestionPage>();
+            builder.Services.AddTransient<ResultaatPage>();
 
             return builder.Build();
         }

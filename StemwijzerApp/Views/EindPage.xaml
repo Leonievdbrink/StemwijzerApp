@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StemwijzerApp.EindPage"
+             BackgroundColor="White"
+             Shell.NavBarIsVisible="False">
+
+    <VerticalStackLayout Padding="30"
+                         Spacing="30"
+                         VerticalOptions="Center">
+
+        <Label Text="Dit waren alle stellingen"
+               FontSize="36"
+               TextColor="Black"
+               HorizontalTextAlignment="Center" />
+
+        <BoxView HeightRequest="5"
+                 Color="#111827"
+                 CornerRadius="3" />
+
+        <Label Text="Dankjewel voor je oefening op stemwijzer"
+               FontSize="20"
+               TextColor="#7B61FF"
+               HorizontalTextAlignment="Center" />
+
+        <Label Text="✓"
+               FontSize="48"
+               TextColor="#7B61FF"
+               HorizontalOptions="Center" />
+
+        <Button Text="Bekijk Resultaten"
+                BackgroundColor="#7B61FF"
+                TextColor="White"
+                CornerRadius="8"
+                Clicked="OnResultatenClicked" />
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -66,11 +66,13 @@
 
 	<ItemGroup>
 	  <Folder Include="Models\" />
-	  <Folder Include="Services\" />
 	  <Folder Include="ViewModels\" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\ResultaatPage.xaml.cs">
+	    <DependentUpon>ResultaatPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\PartijenDetailPage.xaml.cs">
 	    <DependentUpon>PartijenDetailPage.xaml</DependentUpon>
 	  </Compile>
@@ -86,7 +88,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\NewPage1.xaml">
+	  <MauiXaml Update="Views\EindPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ResultaatPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\PartijenDetailPage.xaml">

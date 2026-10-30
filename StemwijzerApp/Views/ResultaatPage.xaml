@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:StemwijzerApp.Models"
+             x:Class="StemwijzerApp.ResultaatPage"
+             BackgroundColor="White"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20"
+                             Spacing="16">
+
+            <Label Text="Jouw resultaat"
+                   TextColor="Red"
+                   HorizontalOptions="Center" />
+            <Label Text="Beste match:"
+                   FontSize="32"
+                   TextColor="Black"
+                   HorizontalOptions="Center" />
+
+            <Border BackgroundColor="#1AA31A"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 8"
+                    Padding="12,8"
+                    HorizontalOptions="Center">
+                <Label x:Name="BesteMatchLabel"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       FontSize="20" />
+            </Border>
+
+            <Label Text="Dit is een vrijblijvend advies op basis van jouw antwoorden. Je bent vrij om te stemmen op welke partij je maar wil."
+                   FontSize="13"
+                   TextColor="Black"
+                   HorizontalTextAlignment="Center" />
+
+            <Label Text="Je top 5"
+                   FontAttributes="Bold"
+                   FontSize="18"
+                   TextColor="Black" />
+
+            <CollectionView x:Name="Top5List">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:MatchResultaat">
+                        <Grid ColumnDefinitions="90,*,50"
+                              ColumnSpacing="8"
+                              Padding="0,6">
+                            <Label Text="{Binding Naam}"
+                                   TextColor="Black"
+                                   VerticalOptions="Center" />
+                            <ProgressBar Grid.Column="1"
+                                         Progress="{Binding Fractie}"
+                                         ProgressColor="#7B61FF"
+                                         VerticalOptions="Center" />
+                            <Label Grid.Column="2"
+                                   Text="{Binding PercentageTekst}"
+                                   TextColor="Black"
+                                   VerticalOptions="Center" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Label Text="Je politieke cirkel rooster"
+                   FontAttributes="Bold"
+                   FontSize="20"
+                   TextColor="Black"
+                   HorizontalOptions="Center" />
+
+            <GraphicsView x:Name="Kompas"
+                          HeightRequest="380"
+                          HorizontalOptions="Fill" />
+
+            <Button Text="Opnieuw beginnen"
+                    BackgroundColor="#7B61FF"
+                    TextColor="White"
+                    CornerRadius="8"
+                    Clicked="OnOpnieuwClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

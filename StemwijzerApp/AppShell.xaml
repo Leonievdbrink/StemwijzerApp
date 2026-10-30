@@ -9,5 +9,9 @@
                   Route="HomePage" />
     <ShellContent ContentTemplate="{DataTemplate local:QuestionPage}"
                   Route="QuestionPage" />
+    <ShellContent ContentTemplate="{DataTemplate local:EindPage}"
+                  Route="EindPage" />
+    <ShellContent ContentTemplate="{DataTemplate local:ResultaatPage}"
+                  Route="ResultaatPage" />
 
 </Shell>
