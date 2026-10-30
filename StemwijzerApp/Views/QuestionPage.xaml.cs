@@ -1,5 +1,6 @@
 using StemwijzerApp.Models;
 using StemwijzerApp.Services.Interfaces;
+using StemwijzerApp.Services;
 using StemwijzerApp.Pages;
 
 namespace StemwijzerApp;
@@ -7,14 +8,15 @@ namespace StemwijzerApp;
 public partial class QuestionPage : ContentPage
 {
     private readonly IStellingService _stellingService;
+    private readonly AnswerSession _answerSession;
     private List<Stelling> _stellingen = new();
-    private readonly List<int> _antwoorden = new();
     private int _index = 0;
 
-    public QuestionPage(IStellingService stellingService)
+    public QuestionPage(IStellingService stellingService, AnswerSession answerSession)
     {
         InitializeComponent();
         _stellingService = stellingService;
+        _answerSession = answerSession;
     }
 
     protected override async void OnAppearing()
@@ -29,7 +31,7 @@ public partial class QuestionPage : ContentPage
         {
             _stellingen = await _stellingService.GetStellingenAsync();
             _index = 0;
-            _antwoorden.Clear();
+            _answerSession.Clear();
             ToonHuidigeStelling();
         }
         catch (Exception ex)
@@ -72,7 +74,7 @@ public partial class QuestionPage : ContentPage
 
     private async void VerwerkAntwoord(int antwoord)
     {
-        _antwoorden.Add(antwoord);
+        _answerSession.AddAnswer(_stellingen[_index], antwoord);
         _index++;
 
         if (_index >= _stellingen.Count)

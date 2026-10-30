@@ -2,6 +2,7 @@
 using StemwijzerApp.Helpers;
 using StemwijzerApp.Services.Api;
 using StemwijzerApp.Services.Interfaces;
+using StemwijzerApp.Services;
 //using StemwijzerApp.Views;
 
 namespace StemwijzerApp
@@ -33,6 +34,7 @@ namespace StemwijzerApp
             });
 
             // Services
+            builder.Services.AddSingleton<AnswerSession>();
             builder.Services.AddSingleton<IStellingService, ApiStellingService>();
 
             // Pagina's (zodat ze services via de constructor krijgen)
