@@ -18,4 +18,9 @@ public partial class HomePage : ContentPage
             await DisplayAlert("Fout", ex.ToString(), "OK");
         }
     }
+
+    private async void OnPartijenTapped(object? sender, TappedEventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(PartijenPage));
+    }
 }

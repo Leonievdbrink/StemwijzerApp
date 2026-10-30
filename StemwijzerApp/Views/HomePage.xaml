@@ -70,7 +70,11 @@
                 <Label Text="Partijen"
                        FontFamily="PoppinsRegular"
                        FontSize="15"
-                       HorizontalTextAlignment="Center" />
+                       HorizontalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPartijenTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
                 <Label Text="100% Anoniem"
                        FontFamily="PoppinsRegular"
                        FontSize="15"
