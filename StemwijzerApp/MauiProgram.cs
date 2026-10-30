@@ -37,6 +37,10 @@ namespace StemwijzerApp
 
             // Pagina's (zodat ze services via de constructor krijgen)
             builder.Services.AddTransient<QuestionPage>();
+            builder.Services.AddSingleton<IPartijService, ApiPartijService>();
+
+            builder.Services.AddTransient<PartijenPage>();
+            builder.Services.AddTransient<PartijDetailPage>();
 
             return builder.Build();
         }

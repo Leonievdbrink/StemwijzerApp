@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StemwijzerApp.Models;
 
 namespace StemwijzerApp.Services.Interfaces
 {
-    internal interface IPartijService
+    public interface IPartijService
     {
+        Task<List<Partij>> GetPartijenAsync();
     }
 }
