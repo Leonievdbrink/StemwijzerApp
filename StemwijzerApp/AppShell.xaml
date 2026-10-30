@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Shell
-    x:Class="StemwijzerApp.AppShell"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:pages="clr-namespace:StemwijzerApp.Pages"
-    Title="StemwijzerApp">
+<Shell x:Class="StemwijzerApp.AppShell"
+       xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:StemwijzerApp"
+       Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate pages:BedanktPage}"
-        Route="BedanktPage" />
+    <ShellContent ContentTemplate="{DataTemplate local:HomePage}"
+                  Route="HomePage" />
+    <ShellContent ContentTemplate="{DataTemplate local:QuestionPage}"
+                  Route="QuestionPage" />
 
 </Shell>

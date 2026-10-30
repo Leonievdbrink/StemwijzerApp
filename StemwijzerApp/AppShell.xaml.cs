@@ -1,4 +1,6 @@
-﻿namespace StemwijzerApp
+﻿using Stemwijzer;
+
+namespace StemwijzerApp
 {
     public partial class AppShell : Shell
     {

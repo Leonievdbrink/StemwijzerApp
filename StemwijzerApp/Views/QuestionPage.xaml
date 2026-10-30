@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StemwijzerApp.QuestionPage"
+             >
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+
+            <Label
+                Text="Infrastructuur"
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Label
+                x:Name="StellingArea"
+                Text="De overheid moet meer geld investeren in openbaar vervoer, ook als dit betekent dat de belastingen omhoog gaan."
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level2"
+                HeightRequest="450"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
+
+            <Button
+                Text="Eens"
+                BackgroundColor="#785FFF"
+                FontAttributes="Bold"
+                Clicked="OnClickEens"
+                />
+            <Button
+                Text="geen mening"
+                BackgroundColor="#148DFF"
+                FontAttributes="Bold"
+                Clicked="OnClickGeenMening"
+                />
+            <Button
+                Text="oneens"
+                BackgroundColor="#D53333"
+                FontAttributes="Bold"
+                Clicked="OnClickOneens"
+                />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

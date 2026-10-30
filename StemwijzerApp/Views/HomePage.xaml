@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StemwijzerApp.HomePage"
+             Title="Welkom"
+             BackgroundColor="White"
+             Shell.NavBarIsVisible="False">
+
+    <ContentPage.Resources>
+        <Color x:Key="Navy">#111827</Color>
+        <Color x:Key="Paars">#7B61FF</Color>
+        <Color x:Key="GrijsDot">#DDDDDD</Color>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="*,Auto,*,Auto,*,Auto,Auto"
+          Padding="24,0"
+          MaximumWidthRequest="500">
+
+        <!-- Titel + lijn -->
+        <VerticalStackLayout Grid.Row="1"
+                             Spacing="14">
+            <Label Text="Welke partij past bij jou?"
+                   FontFamily="PoppinsMedium"
+                   FontSize="40"
+                   TextColor="Black"
+                   HorizontalTextAlignment="Center" />
+            <BoxView HeightRequest="5"
+                     CornerRadius="3"
+                     Color="{StaticResource Navy}"
+                     HorizontalOptions="Fill" />
+        </VerticalStackLayout>
+
+        <!-- Uitleg -->
+        <Label Grid.Row="3"
+               Text="Beantwoord deze stellingen over actuele onderwerpen en ontdek welke politieke partij het beste aansluit bij jouw standpunten."
+               FontFamily="PoppinsRegular"
+               FontSize="18"
+               TextColor="Black"
+               LineHeight="1.3"
+               HorizontalTextAlignment="Start" />
+
+        <!-- Knop -->
+        <Button Grid.Row="5"
+                Text="Begin de stemwijzer →"
+                FontFamily="PoppinsRegular"
+                FontSize="17"
+                TextColor="White"
+                BackgroundColor="{StaticResource Paars}"
+                CornerRadius="8"
+                HeightRequest="52"
+                Clicked="OnBeginClicked">
+            <Button.Shadow>
+                <Shadow Brush="Black"
+                        Offset="0,4"
+                        Radius="6"
+                        Opacity="0.4" />
+            </Button.Shadow>
+        </Button>
+
+        <!-- Kenmerken + paginaindicator -->
+        <VerticalStackLayout Grid.Row="6"
+                             Spacing="24"
+                             Margin="0,40,0,16">
+            <VerticalStackLayout Spacing="2"
+                                 HorizontalOptions="Center">
+                <Label Text="Stellingen"
+                       FontFamily="PoppinsRegular"
+                       FontSize="15"
+                       HorizontalTextAlignment="Center" />
+                <Label Text="Partijen"
+                       FontFamily="PoppinsRegular"
+                       FontSize="15"
+                       HorizontalTextAlignment="Center" />
+                <Label Text="100% Anoniem"
+                       FontFamily="PoppinsRegular"
+                       FontSize="15"
+                       HorizontalTextAlignment="Center" />
+            </VerticalStackLayout>
+
+            <HorizontalStackLayout HorizontalOptions="Center"
+                                   Spacing="4">
+                <Border WidthRequest="32"
+                        HeightRequest="8"
+                        BackgroundColor="{StaticResource Paars}"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 4" />
+                <Border WidthRequest="8"
+                        HeightRequest="8"
+                        BackgroundColor="{StaticResource GrijsDot}"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 4" />
+                <Border WidthRequest="8"
+                        HeightRequest="8"
+                        BackgroundColor="{StaticResource GrijsDot}"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 4" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
