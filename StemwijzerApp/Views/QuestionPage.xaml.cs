@@ -1,5 +1,6 @@
 using StemwijzerApp.Models;
 using StemwijzerApp.Services.Interfaces;
+using StemwijzerApp.Pages;
 
 namespace StemwijzerApp;
 
@@ -7,6 +8,7 @@ public partial class QuestionPage : ContentPage
 {
     private readonly IStellingService _stellingService;
     private List<Stelling> _stellingen = new();
+    private readonly List<int> _antwoorden = new();
     private int _index = 0;
 
     public QuestionPage(IStellingService stellingService)
@@ -27,6 +29,7 @@ public partial class QuestionPage : ContentPage
         {
             _stellingen = await _stellingService.GetStellingenAsync();
             _index = 0;
+            _antwoorden.Clear();
             ToonHuidigeStelling();
         }
         catch (Exception ex)
@@ -54,25 +57,30 @@ public partial class QuestionPage : ContentPage
 
     private void OnClickEens(object? sender, EventArgs e)
     {
-        // TODO: antwoord opslaan (bijv. 1 = eens)
-        Volgende();
+        VerwerkAntwoord(1);
     }
 
     private void OnClickGeenMening(object? sender, EventArgs e)
     {
-        // TODO: antwoord opslaan (bijv. 0 = geen mening)
-        Volgende();
+        VerwerkAntwoord(0);
     }
 
     private void OnClickOneens(object? sender, EventArgs e)
     {
-        // TODO: antwoord opslaan (bijv. -1 = oneens)
-        Volgende();
+        VerwerkAntwoord(-1);
     }
 
-    private void Volgende()
+    private async void VerwerkAntwoord(int antwoord)
     {
+        _antwoorden.Add(antwoord);
         _index++;
+
+        if (_index >= _stellingen.Count)
+        {
+            await Shell.Current.GoToAsync("BedanktPage");
+            return;
+        }
+
         ToonHuidigeStelling();
     }
 }

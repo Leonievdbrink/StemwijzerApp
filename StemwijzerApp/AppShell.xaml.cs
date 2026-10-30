@@ -9,6 +9,7 @@ namespace StemwijzerApp
             InitializeComponent();
             // register route for results page so we can navigate with Shell.GoToAsync("ResultsPage")
             Routing.RegisterRoute("ResultsPage", typeof(Pages.ResultsPage));
+            Routing.RegisterRoute("BedanktPage", typeof(Pages.BedanktPage));
         }
     }
 }
