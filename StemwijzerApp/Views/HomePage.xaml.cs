@@ -7,6 +7,7 @@ public partial class HomePage : ContentPage
         InitializeComponent();
     }
 
+    //handler als er op de begin knop word geklikt
     private async void OnBeginClicked(object sender, EventArgs e)
     {
         try
@@ -19,6 +20,7 @@ public partial class HomePage : ContentPage
         }
     }
 
+    //handler als er op de partijen knop word geklikt
     private async void OnPartijenTapped(object? sender, TappedEventArgs e)
     {
         await Shell.Current.GoToAsync(nameof(PartijenPage));

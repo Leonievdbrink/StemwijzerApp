@@ -19,6 +19,7 @@ public partial class ResultaatPage : ContentPage
     {
         base.OnAppearing();
 
+        // Controleer of er antwoorden zijn voordat we de berekening uitvoeren
         try
         {
             var response = await _match.BerekenAsync(_antwoorden.Antwoorden);

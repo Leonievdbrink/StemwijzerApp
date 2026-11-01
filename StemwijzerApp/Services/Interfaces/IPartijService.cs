@@ -9,6 +9,7 @@ namespace StemwijzerApp.Services.Interfaces
 {
     public interface IPartijService
     {
+        //haalt de lijst van partijen op
         Task<List<Partij>> GetPartijenAsync();
     }
 }

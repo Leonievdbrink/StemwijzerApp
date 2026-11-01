@@ -10,6 +10,7 @@ namespace StemwijzerApp.Services.Interfaces
 {
     public interface IStellingService
     {
+        //haalt alle stelingen op
         Task<List<Stelling>> GetStellingenAsync();
     }
 }

@@ -1,4 +1,4 @@
-﻿using Stemwijzer;
+﻿using StemwijzerApp;
 
 namespace StemwijzerApp
 {

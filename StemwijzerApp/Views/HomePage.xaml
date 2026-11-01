@@ -67,9 +67,11 @@
                        FontFamily="PoppinsRegular"
                        FontSize="15"
                        HorizontalTextAlignment="Center" />
-                <Label Text="Partijen"
+                <Label Text="Partijen ->"
                        FontFamily="PoppinsRegular"
                        FontSize="15"
+                       TextDecorations="Underline"
+                       FontAttributes="Bold"
                        HorizontalTextAlignment="Center">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnPartijenTapped" />
