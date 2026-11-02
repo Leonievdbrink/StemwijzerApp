@@ -41,9 +41,18 @@ public partial class QuestionPage : ContentPage
     // Toont de huidige stelling in de StellingArea
     private void ToonHuidigeStelling()
     {
-        StellingArea.Text = _stellingen.Count == 0
-            ? "Geen stellingen gevonden."
-            : _stellingen[_index].Tekst;
+        if (_stellingen.Count == 0)
+        {
+            CategorieArea.Text = "";
+            StellingArea.Text = "Geen stellingen gevonden.";
+            return;
+        }
+
+        var stelling = _stellingen[_index];
+        CategorieArea.Text = string.IsNullOrWhiteSpace(stelling.CategorieNaam)
+            ? "Onbekende categorie"
+            : stelling.CategorieNaam;
+        StellingArea.Text = stelling.Tekst;
     }
 
     // Event handlers voor de knoppen

@@ -6,8 +6,11 @@ namespace StemwijzerApp.Models
     {
         public int Id { get; set; }
 
-        [JsonPropertyName("categorie_id")]
+        [JsonPropertyName("categorieId")]
         public int CategorieId { get; set; }
+
+        [JsonPropertyName("categorieNaam")]
+        public string? CategorieNaam { get; set; }
 
         public string Tekst { get; set; } = "";
         public string Status { get; set; } = "";
