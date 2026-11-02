@@ -7,6 +7,7 @@ public class KompasDrawable : IDrawable
     public List<MatchResultaat> Partijen { get; set; } = new();
     public (double X, double Y) Gebruiker { get; set; }
 
+    // Tekent het kompasdiagram op het canvas
     public void Draw(ICanvas canvas, RectF rect)
     {
         float cx = rect.Center.X;

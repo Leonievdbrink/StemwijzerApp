@@ -14,6 +14,7 @@ public partial class PartijenPage : ContentPage
         _partijService = partijService;
     }
 
+    // Haalt de lijst van partijen op wanneer de pagina verschijnt
     protected override async void OnAppearing()
     {
         base.OnAppearing();
@@ -27,6 +28,7 @@ public partial class PartijenPage : ContentPage
         }
     }
 
+    // handler voor wanneer een partij wordt geselecteerd
     private async void OnPartijSelected(object? sender, SelectionChangedEventArgs e)
     {
         if (e.CurrentSelection.FirstOrDefault() is not Partij partij)
@@ -37,6 +39,8 @@ public partial class PartijenPage : ContentPage
         await Shell.Current.GoToAsync(nameof(PartijDetailPage),
             new Dictionary<string, object> { { "Partij", partij } });
     }
+
+    // handler voor wanneer de terug knop wordt ingedrukt
 
     private async void OnBackTapped(object? sender, TappedEventArgs e)
     {

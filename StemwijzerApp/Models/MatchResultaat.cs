@@ -23,8 +23,11 @@ namespace StemwijzerApp.Models
         [JsonPropertyName("x")] public double X { get; set; }
         [JsonPropertyName("y")] public double Y { get; set; }
 
+        //bereken de naam die getoond moet worden, afhankelijk van of er een afkorting is of niet
         [JsonIgnore] public string Naam => string.IsNullOrWhiteSpace(Afkorting) ? VolleNaam : Afkorting!;
+        //bereken de fractie van het percentage
         [JsonIgnore] public double Fractie => Percentage / 100.0;
+        //bereken de tekst die getoond moet worden voor het percentage
         [JsonIgnore] public string PercentageTekst => $"{Percentage:0}%";
     }
 

@@ -22,6 +22,7 @@ namespace StemwijzerApp.Services.Api
             _http = http;
         }
 
+        //haalt de stellingen op van de api in een lijst en geeft ze terug, als er geen stellingen zijn dan geeft hij een lege lijst terug
         public async Task<List<Stelling>> GetStellingenAsync()
         {
             var result = await _http.GetFromJsonAsync<List<Stelling>>("stellingen", _options);

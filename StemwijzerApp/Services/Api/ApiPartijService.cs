@@ -15,17 +15,20 @@ namespace StemwijzerApp.Services.Api
     {
         private readonly HttpClient _http;
 
+        //opties voor voor de json zodat hoofdletters niet uitmaken en dat nummers vanuit strings ook leesbaar zijn
         private static readonly JsonSerializerOptions _options = new()
         {
             PropertyNameCaseInsensitive = true,
             NumberHandling = JsonNumberHandling.AllowReadingFromString
         };
 
+        // constructor
         public ApiPartijService(HttpClient http)
         {
             _http = http;
         }
 
+        // haalt de partijen op van de api en zet het nummer van de partij in de lijst
         public async Task<List<Partij>> GetPartijenAsync()
         {
             var result = await _http.GetFromJsonAsync<List<Partij>>("partijen", _options)

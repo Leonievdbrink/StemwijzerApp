@@ -20,9 +20,12 @@ public partial class QuestionPage : ContentPage
 
     protected override async void OnAppearing()
     {
+        // Haalt de stellingen op wanneer de pagina verschijnt en toont de eerste stelling
         base.OnAppearing();
+        //wis de oude antwoorden zodat de gebruiker opnieuw kan stemmen
         _antwoorden.Wis();
 
+        // Haal de stellingen op van de service en toon de eerste stelling
         try
         {
             _stellingen = await _stellingService.GetStellingenAsync();
@@ -35,6 +38,7 @@ public partial class QuestionPage : ContentPage
         }
     }
 
+    // Toont de huidige stelling in de StellingArea
     private void ToonHuidigeStelling()
     {
         StellingArea.Text = _stellingen.Count == 0
@@ -42,10 +46,12 @@ public partial class QuestionPage : ContentPage
             : _stellingen[_index].Tekst;
     }
 
+    // Event handlers voor de knoppen
     private void OnClickEens(object? sender, EventArgs e) => Beantwoord("eens");
     private void OnClickGeenMening(object? sender, EventArgs e) => Beantwoord("geen mening");
     private void OnClickOneens(object? sender, EventArgs e) => Beantwoord("oneens");
 
+    // Beantwoordt de huidige stelling en gaat naar de volgende of naar de eindpagina
     private async void Beantwoord(string keuze)
     {
         try
