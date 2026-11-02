@@ -9,6 +9,7 @@ namespace StemwijzerApp
             InitializeComponent();
             Routing.RegisterRoute(nameof(PartijenPage), typeof(PartijenPage));
             Routing.RegisterRoute(nameof(PartijDetailPage), typeof(PartijDetailPage));
+            Routing.RegisterRoute("BedanktPage", typeof(Pages.BedanktPage));
         }
     }
 }

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StemwijzerApp.Pages.ResultsPage"
+             BackgroundColor="{StaticResource Gray100}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="18">
+            <Label Text="Jouw resultaat" TextColor="{StaticResource Magenta}" HorizontalOptions="Center" FontSize="14" />
+            <Label Text="Beste match:" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" />
+
+            <Frame BackgroundColor="White" CornerRadius="12" Padding="18" HasShadow="False">
+                <VerticalStackLayout Spacing="8">
+                    <Label x:Name="BestPartyLabel" Text="PvdA/GL  79% overeenkomst" FontAttributes="Bold" FontSize="18" HorizontalOptions="Center" />
+                    <Label Text="Dit is een vrijblijvend advies op basis van jouw antwoorden. Je bent vrij om te stemmen op welke partij je maar wil." FontSize="12" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="{StaticResource Gray600}" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Label Text="Je top 5" FontAttributes="Bold" FontSize="16" />
+
+            <VerticalStackLayout Spacing="10">
+                <!-- Item template: party name, progress bar, percent -->
+                <VerticalStackLayout>
+                    <Label Text="1. PvdA/GL" FontAttributes="Bold" />
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                        <ProgressBar Progress="0.79" HeightRequest="12" BackgroundColor="{StaticResource Gray200}" ProgressColor="{StaticResource Primary}" />
+                        <Label Text="79%" Grid.Column="1" VerticalTextAlignment="Center" />
+                    </Grid>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout>
+                    <Label Text="2. Volt" />
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                        <ProgressBar Progress="0.75" HeightRequest="12" BackgroundColor="{StaticResource Gray200}" ProgressColor="#7C3AED" />
+                        <Label Text="75%" Grid.Column="1" VerticalTextAlignment="Center" />
+                    </Grid>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout>
+                    <Label Text="3. D66" />
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                        <ProgressBar Progress="0.67" HeightRequest="12" BackgroundColor="{StaticResource Gray200}" ProgressColor="#FFD43B" />
+                        <Label Text="67%" Grid.Column="1" VerticalTextAlignment="Center" />
+                    </Grid>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout>
+                    <Label Text="4. SP" />
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                        <ProgressBar Progress="0.46" HeightRequest="12" BackgroundColor="{StaticResource Gray200}" ProgressColor="#EF4444" />
+                        <Label Text="46%" Grid.Column="1" VerticalTextAlignment="Center" />
+                    </Grid>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout>
+                    <Label Text="5. DENK" />
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                        <ProgressBar Progress="0.42" HeightRequest="12" BackgroundColor="{StaticResource Gray200}" ProgressColor="#06B6D4" />
+                        <Label Text="42%" Grid.Column="1" VerticalTextAlignment="Center" />
+                    </Grid>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+
+            <Label Text="Je politieke cirkel rooster" FontAttributes="Bold" FontSize="16" />
+            <Frame BackgroundColor="White" CornerRadius="12" Padding="12" HasShadow="False">
+                <Image Source="political_circle_placeholder.png" Aspect="AspectFit" HeightRequest="220" />
+            </Frame>
+
+            <!-- pager dots -->
+            <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="End" Margin="0,0,0,8" Spacing="8">
+                <BoxView WidthRequest="8" HeightRequest="8" CornerRadius="4" Color="{StaticResource Gray200}" />
+                <BoxView WidthRequest="24" HeightRequest="8" CornerRadius="4" Color="{StaticResource Primary}" />
+                <BoxView WidthRequest="8" HeightRequest="8" CornerRadius="4" Color="{StaticResource Gray200}" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
