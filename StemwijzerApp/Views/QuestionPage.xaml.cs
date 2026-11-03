@@ -32,7 +32,6 @@ public partial class QuestionPage : ContentPage
         {
             _stellingen = await _stellingService.GetStellingenAsync();
             _index = 0;
-            _answerSession.Clear();
             ToonHuidigeStelling();
         }
         catch (Exception ex)
