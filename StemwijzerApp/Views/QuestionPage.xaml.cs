@@ -55,6 +55,17 @@ public partial class QuestionPage : ContentPage
             ? "Onbekende categorie"
             : stelling.CategorieNaam;
         StellingArea.Text = stelling.Tekst;
+        TerugButton.IsEnabled = _index > 0;
+    }
+
+    private void OnClickTerug(object? sender, EventArgs e)
+    {
+        if (_index == 0)
+            return;
+
+        _index--;
+        _antwoorden.Verwijder(_stellingen[_index].Id);
+        ToonHuidigeStelling();
     }
 
     // Event handlers voor de knoppen

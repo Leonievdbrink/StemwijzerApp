@@ -24,6 +24,14 @@
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
 
             <Button
+                x:Name="TerugButton"
+                Text="← Vorige stelling"
+                BackgroundColor="#777777"
+                FontAttributes="Bold"
+                Clicked="OnClickTerug"
+                IsEnabled="False" />
+
+            <Button
                 Text="Eens"
                 BackgroundColor="#785FFF"
                 FontAttributes="Bold"

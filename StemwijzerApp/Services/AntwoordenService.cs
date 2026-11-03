@@ -13,6 +13,13 @@ namespace StemwijzerApp.Services
             Antwoorden.RemoveAll(a => a.StellingId == stellingId);
             Antwoorden.Add(new Antwoord { StellingId = stellingId, Keuze = keuze });
         }
+
+        //verwijdert het antwoord van een stelling als de gebruiker teruggaat
+        public void Verwijder(int stellingId)
+        {
+            Antwoorden.RemoveAll(a => a.StellingId == stellingId);
+        }
+
         //functie om de lijst van antwoorden te wissen
 
         public void Wis() => Antwoorden.Clear();
