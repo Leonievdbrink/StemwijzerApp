@@ -12,7 +12,7 @@ namespace StemwijzerApp.Helpers
         // Fysiek toestel: gebruik het LAN-IP van je pc, bv. http://192.168.1.20
         public static string BaseUrl =>
         DeviceInfo.Platform == DevicePlatform.Android
-        ? "http://10.0.2.2/Stemwijzer/api/"
-        : "http://localhost/Stemwijzer/api/";
+        ? "http://10.0.2.2/4s24-l9-pro-2-stemadvies-politieke-partij-DuBistBibble/api/"
+        : "http://localhost/4s24-l9-pro-2-stemadvies-politieke-partij-DuBistBibble/api/";
     }
 }
