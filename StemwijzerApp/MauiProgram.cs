@@ -42,7 +42,6 @@ namespace StemwijzerApp
 
             builder.Services.AddTransient<PartijenPage>();
             builder.Services.AddTransient<PartijDetailPage>();
-            builder.Services.AddSingleton<IMatchService, MatchService>();
             builder.Services.AddSingleton<AntwoordenService>();
             builder.Services.AddSingleton<IMatchService, MatchService>();
             builder.Services.AddTransient<QuestionPage>();

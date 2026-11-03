@@ -22,6 +22,18 @@ namespace StemwijzerApp.Services.Api
             NumberHandling = JsonNumberHandling.AllowReadingFromString
         };
 
+        private string BuildImageUrl(string imagePath)
+        {
+            var fileName = Path.GetFileName(
+                imagePath.Replace('\\', '/'));
+
+            var imageUri = new Uri(
+                _http.BaseAddress!,
+                $"../UploadedImages/{Uri.EscapeDataString(fileName)}");
+
+            return imageUri.ToString();
+        }
+
         // constructor
         public ApiPartijService(HttpClient http)
         {
@@ -31,11 +43,20 @@ namespace StemwijzerApp.Services.Api
         // haalt de partijen op van de api en zet het nummer van de partij in de lijst
         public async Task<List<Partij>> GetPartijenAsync()
         {
-            var result = await _http.GetFromJsonAsync<List<Partij>>("partijen", _options)
-                         ?? new List<Partij>();
+            var result = await _http.GetFromJsonAsync<List<Partij>>(
+                "partijen",
+                _options) ?? new List<Partij>();
 
             for (int i = 0; i < result.Count; i++)
+            {
                 result[i].Nummer = i + 1;
+
+                if (!string.IsNullOrWhiteSpace(result[i].LogoUrl))
+                {
+                    result[i].LogoUrl =
+                        BuildImageUrl(result[i].LogoUrl);
+                }
+            }
 
             return result;
         }

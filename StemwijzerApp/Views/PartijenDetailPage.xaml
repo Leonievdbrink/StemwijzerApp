@@ -29,11 +29,10 @@
                         BackgroundColor="#2BA39B"
                         StrokeThickness="0"
                         StrokeShape="RoundRectangle 18">
-                    <Label Text="!!"
-                           TextColor="White"
-                           FontAttributes="Bold"
-                           HorizontalOptions="Center"
-                           VerticalOptions="Center" />
+                    <Image Source="{Binding LogoUrl}"
+                            HeightRequest="50"
+                               WidthRequest="50"
+                               Aspect="AspectFit" />
                 </Border>
                 <Label Text="{Binding Kort}"
                        FontAttributes="Bold"
