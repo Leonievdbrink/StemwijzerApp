@@ -10,7 +10,8 @@
             Spacing="25">
 
             <Label
-                Text="Infrastructuur"
+                x:Name="CategorieArea"
+                Text="Categorie"
                 Style="{StaticResource SubHeadline}"
                 SemanticProperties.HeadingLevel="Level1" />
 

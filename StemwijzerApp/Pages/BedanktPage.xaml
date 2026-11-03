@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StemwijzerApp.Pages.BedanktPage"
+             BackgroundColor="{StaticResource Gray100}">
+
+    <Grid>
+        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="18">
+            <Frame BackgroundColor="{StaticResource White}" CornerRadius="12" Padding="28" HasShadow="False" WidthRequest="340" HeightRequest="480">
+                <VerticalStackLayout Spacing="16" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="Dit waren alle stellingen" FontAttributes="Bold" FontSize="26" HorizontalTextAlignment="Center" TextColor="{StaticResource MidnightBlue}" />
+
+                    <BoxView HeightRequest="3" WidthRequest="160" Color="{StaticResource Gray950}" HorizontalOptions="Center" Margin="0,6" />
+
+                    <Label Text="Dankjewel voor je oefening op stemwijzer" FontSize="14" TextColor="{StaticResource SecondaryDarkText}" HorizontalTextAlignment="Center" />
+
+                    <Frame WidthRequest="72" HeightRequest="72" CornerRadius="36" BackgroundColor="{StaticResource Secondary}" HorizontalOptions="Center" HasShadow="False" Padding="0">
+                        <Label Text="✔" FontSize="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="{StaticResource White}" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Frame>
+
+                    <Button x:Name="ResultsButton" Text="Bekijk Resultaten" BackgroundColor="{StaticResource Primary}" TextColor="White" CornerRadius="8" WidthRequest="220" HeightRequest="46" HorizontalOptions="Center" Clicked="OnResultsClicked" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- pager dots -->
+            <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="End" Margin="0,0,0,8" Spacing="8">
+                <BoxView WidthRequest="8" HeightRequest="8" CornerRadius="4" Color="{StaticResource Gray200}" />
+                <BoxView WidthRequest="24" HeightRequest="8" CornerRadius="4" Color="{StaticResource Primary}" />
+                <BoxView WidthRequest="8" HeightRequest="8" CornerRadius="4" Color="{StaticResource Gray200}" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </Grid>
+
+</ContentPage>
